@@ -1,4 +1,4 @@
-package com.github.saem.identity;
+package com.github.saem.appendage;
 
 import com.github.saem.identity.resources.AuthorizationResource;
 import io.dropwizard.Application;

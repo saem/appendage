@@ -1,4 +1,4 @@
-package com.github.saem.identity;
+package com.github.saem.appendage;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;

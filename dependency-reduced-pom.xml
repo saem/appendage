@@ -92,6 +92,46 @@
           </filters>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.jooq</groupId>
+        <artifactId>jooq-codegen-maven</artifactId>
+        <version>${jooq.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgres.version}</version>
+          </dependency>
+        </dependencies>
+        <configuration>
+          <jdbc>
+            <driver>org.postgresql.Driver</driver>
+            <url>jdbc:postgresql://localhost/identity</url>
+            <user>postgres</user>
+            <password>postgres</password>
+          </jdbc>
+          <generator>
+            <name>org.jooq.util.DefaultGenerator</name>
+            <database>
+              <name>org.jooq.util.postgres.PostgresDatabase</name>
+              <includes>.*</includes>
+              <excludes />
+              <inputSchema>public</inputSchema>
+            </database>
+            <target>
+              <packageName>com.github.saem.identity.jooq.generated</packageName>
+              <directory>src/main/java</directory>
+            </target>
+          </generator>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
   <repositories>
@@ -138,6 +178,7 @@
   <properties>
     <dropwizard.version>0.7.1</dropwizard.version>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <postgres.version>9.1-901-1.jdbc4</postgres.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jooq.version>3.4.2</jooq.version>
   </properties>
