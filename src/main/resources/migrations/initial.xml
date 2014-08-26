@@ -10,21 +10,21 @@
     <changeSet id="1" author="saem">
         
         <!--
-        
+
         @TODO
-        
+
         * TUUID for sequences, assuming they're efficient
         * naming convention for primary keys and foreign keys
         * indicees
         * views
-        
+
         -->
-        
+
         <!-- Entities -->
 
         <createTable tableName="users">
             <column name="user_id" type="bigint" autoIncrement="true">
-                <constraints primaryKeyName="users_user_id_seq" primaryKey="true" />
+                <constraints primaryKeyName="pk_users_user_id" primaryKey="true" />
             </column>
         </createTable>
         
@@ -32,7 +32,7 @@
         
         <createTable tableName="events">
             <column name="sequence" type="bigint" autoIncrement="true">
-                <constraints primaryKeyName="events_sequence_seq" primaryKey="true" />
+                <constraints primaryKeyName="pk_events_sequence" primaryKey="true" />
             </column>
             <column name="event" type="varchar(255)">
                 <constraints nullable="false" />
@@ -55,7 +55,7 @@
         
         <createTable tableName="user_states">
             <column name="user_state_id" type="bigint">
-                <constraints primaryKeyName="users_user_states_id_seq" primaryKey="true"/>
+                <constraints primaryKeyName="pk_users_user_states_id" primaryKey="true"/>
             </column>
             <column name="user_id" type="bigint">
                 <constraints foreignKeyName="fk_user_states_users"
