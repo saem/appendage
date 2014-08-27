@@ -1,4 +1,4 @@
-package com.github.saem.identity.resources;
+package com.github.saem.appendage.resources;
 
 import java.net.URI;
 import java.net.URISyntaxException;

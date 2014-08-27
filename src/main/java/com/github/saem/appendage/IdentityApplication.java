@@ -1,6 +1,6 @@
 package com.github.saem.appendage;
 
-import com.github.saem.identity.resources.AuthorizationResource;
+import com.github.saem.appendage.resources.AuthorizationResource;
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.db.ManagedDataSource;

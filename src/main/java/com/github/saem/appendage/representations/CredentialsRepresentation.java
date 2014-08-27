@@ -1,4 +1,4 @@
-package com.github.saem.identity.representations;
+package com.github.saem.appendage.representations;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 
