@@ -11,7 +11,7 @@ package com.github.saem.appendage.jooq.generated.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Users extends org.jooq.impl.TableImpl<com.github.saem.appendage.jooq.generated.tables.records.UsersRecord> {
 
-	private static final long serialVersionUID = 1035968440;
+	private static final long serialVersionUID = 1743206496;
 
 	/**
 	 * The singleton instance of <code>public.users</code>

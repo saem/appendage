@@ -1,6 +1,7 @@
 package com.github.saem.appendage;
 
-import com.github.saem.appendage.resources.AuthorizationResource;
+import com.github.saem.appendage.resources.UserResource;
+import com.github.saem.appendage.users.UserLookupService;
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.db.ManagedDataSource;
@@ -26,10 +27,12 @@ final public class IdentityApplication extends Application<IdentityConfiguration
 
     @Override
     public void run(IdentityConfiguration cfg, Environment env) throws Exception {
-        ManagedDataSource ds = cfg.getDataSourceFactory().build(env.metrics(), "db");
+        final ManagedDataSource ds = cfg.getDataSourceFactory().build(env.metrics(), "db");
         
-        AuthorizationResource authorizationResource = new AuthorizationResource(ds);
+        final UserLookupService userLookupService = new UserLookupService(ds);
         
-        env.jersey().register(authorizationResource);
+        UserResource userResource = new UserResource(ds);
+        
+        env.jersey().register(userResource);
     }
 }

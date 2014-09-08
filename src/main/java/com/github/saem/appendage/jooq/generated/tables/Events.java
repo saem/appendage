@@ -11,7 +11,7 @@ package com.github.saem.appendage.jooq.generated.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Events extends org.jooq.impl.TableImpl<com.github.saem.appendage.jooq.generated.tables.records.EventsRecord> {
 
-	private static final long serialVersionUID = -1547232897;
+	private static final long serialVersionUID = 1351588316;
 
 	/**
 	 * The singleton instance of <code>public.events</code>
@@ -49,7 +49,7 @@ public class Events extends org.jooq.impl.TableImpl<com.github.saem.appendage.jo
 	/**
 	 * The column <code>public.events.when</code>.
 	 */
-	public final org.jooq.TableField<com.github.saem.appendage.jooq.generated.tables.records.EventsRecord, java.sql.Timestamp> WHEN = createField("when", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "");
+	public final org.jooq.TableField<com.github.saem.appendage.jooq.generated.tables.records.EventsRecord, java.time.LocalDateTime> WHEN = createField("when", org.jooq.impl.SQLDataType.TIMESTAMP.nullable(false), this, "", new com.github.saem.appendage.jooq.LocalDateTimeConverter());
 
 	/**
 	 * Create a <code>public.events</code> table reference

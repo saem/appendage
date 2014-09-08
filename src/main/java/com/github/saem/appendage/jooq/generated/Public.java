@@ -11,7 +11,7 @@ package com.github.saem.appendage.jooq.generated;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Public extends org.jooq.impl.SchemaImpl {
 
-	private static final long serialVersionUID = 20290666;
+	private static final long serialVersionUID = 1164009866;
 
 	/**
 	 * The singleton instance of <code>public</code>
@@ -47,10 +47,14 @@ public class Public extends org.jooq.impl.SchemaImpl {
 
 	private final java.util.List<org.jooq.Table<?>> getTables0() {
 		return java.util.Arrays.<org.jooq.Table<?>>asList(
+			com.github.saem.appendage.jooq.generated.tables.CurrentApiKeys.CURRENT_API_KEYS,
+			com.github.saem.appendage.jooq.generated.tables.CurrentApiUsers.CURRENT_API_USERS,
+			com.github.saem.appendage.jooq.generated.tables.CurrentUsers.CURRENT_USERS,
 			com.github.saem.appendage.jooq.generated.tables.Databasechangelog.DATABASECHANGELOG,
 			com.github.saem.appendage.jooq.generated.tables.Databasechangeloglock.DATABASECHANGELOGLOCK,
 			com.github.saem.appendage.jooq.generated.tables.Events.EVENTS,
-			com.github.saem.appendage.jooq.generated.tables.UserEvents.USER_EVENTS,
+			com.github.saem.appendage.jooq.generated.tables.UserApiKeys.USER_API_KEYS,
+			com.github.saem.appendage.jooq.generated.tables.UserAuthorities.USER_AUTHORITIES,
 			com.github.saem.appendage.jooq.generated.tables.Users.USERS,
 			com.github.saem.appendage.jooq.generated.tables.UserStates.USER_STATES);
 	}

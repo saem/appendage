@@ -11,7 +11,7 @@ package com.github.saem.appendage.jooq.generated.tables.records;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class DatabasechangeloglockRecord extends org.jooq.impl.UpdatableRecordImpl<com.github.saem.appendage.jooq.generated.tables.records.DatabasechangeloglockRecord> implements org.jooq.Record4<java.lang.Integer, java.lang.Boolean, java.sql.Timestamp, java.lang.String> {
 
-	private static final long serialVersionUID = 1892131208;
+	private static final long serialVersionUID = 1996128902;
 
 	/**
 	 * Setter for <code>public.databasechangeloglock.id</code>.

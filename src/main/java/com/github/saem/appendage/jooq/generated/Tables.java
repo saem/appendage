@@ -14,6 +14,21 @@ package com.github.saem.appendage.jooq.generated;
 public class Tables {
 
 	/**
+	 * The table public.current_api_keys
+	 */
+	public static final com.github.saem.appendage.jooq.generated.tables.CurrentApiKeys CURRENT_API_KEYS = com.github.saem.appendage.jooq.generated.tables.CurrentApiKeys.CURRENT_API_KEYS;
+
+	/**
+	 * The table public.current_api_users
+	 */
+	public static final com.github.saem.appendage.jooq.generated.tables.CurrentApiUsers CURRENT_API_USERS = com.github.saem.appendage.jooq.generated.tables.CurrentApiUsers.CURRENT_API_USERS;
+
+	/**
+	 * The table public.current_users
+	 */
+	public static final com.github.saem.appendage.jooq.generated.tables.CurrentUsers CURRENT_USERS = com.github.saem.appendage.jooq.generated.tables.CurrentUsers.CURRENT_USERS;
+
+	/**
 	 * The table public.databasechangelog
 	 */
 	public static final com.github.saem.appendage.jooq.generated.tables.Databasechangelog DATABASECHANGELOG = com.github.saem.appendage.jooq.generated.tables.Databasechangelog.DATABASECHANGELOG;
@@ -29,9 +44,14 @@ public class Tables {
 	public static final com.github.saem.appendage.jooq.generated.tables.Events EVENTS = com.github.saem.appendage.jooq.generated.tables.Events.EVENTS;
 
 	/**
-	 * The table public.user_events
+	 * The table public.user_api_keys
 	 */
-	public static final com.github.saem.appendage.jooq.generated.tables.UserEvents USER_EVENTS = com.github.saem.appendage.jooq.generated.tables.UserEvents.USER_EVENTS;
+	public static final com.github.saem.appendage.jooq.generated.tables.UserApiKeys USER_API_KEYS = com.github.saem.appendage.jooq.generated.tables.UserApiKeys.USER_API_KEYS;
+
+	/**
+	 * The table public.user_authorities
+	 */
+	public static final com.github.saem.appendage.jooq.generated.tables.UserAuthorities USER_AUTHORITIES = com.github.saem.appendage.jooq.generated.tables.UserAuthorities.USER_AUTHORITIES;
 
 	/**
 	 * The table public.users

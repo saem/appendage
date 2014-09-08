@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.saem</groupId>
-  <artifactId>identity</artifactId>
+  <artifactId>appendage</artifactId>
   <name>Identity Application</name>
   <version>0.0.1</version>
   <prerequisites>
@@ -72,7 +72,7 @@
               <transformers>
                 <transformer />
                 <transformer>
-                  <mainClass>com.github.saem.identity.IdentityApplication</mainClass>
+                  <mainClass>com.github.saem.appendage.IdentityApplication</mainClass>
                 </transformer>
               </transformers>
             </configuration>
@@ -96,13 +96,6 @@
         <groupId>org.jooq</groupId>
         <artifactId>jooq-codegen-maven</artifactId>
         <version>${jooq.version}</version>
-        <executions>
-          <execution>
-            <goals>
-              <goal>generate</goal>
-            </goals>
-          </execution>
-        </executions>
         <dependencies>
           <dependency>
             <groupId>postgresql</groupId>
@@ -124,9 +117,21 @@
               <includes>.*</includes>
               <excludes />
               <inputSchema>public</inputSchema>
+              <customTypes>
+                <customType>
+                  <name>java.time.LocalDateTime</name>
+                  <converter>com.github.saem.appendage.jooq.LocalDateTimeConverter</converter>
+                </customType>
+              </customTypes>
+              <forcedTypes>
+                <forcedType>
+                  <name>java.time.LocalDateTime</name>
+                  <expression>.*\.when</expression>
+                </forcedType>
+              </forcedTypes>
             </database>
             <target>
-              <packageName>com.github.saem.identity.jooq.generated</packageName>
+              <packageName>com.github.saem.appendage.jooq.generated</packageName>
               <directory>src/main/java</directory>
             </target>
           </generator>

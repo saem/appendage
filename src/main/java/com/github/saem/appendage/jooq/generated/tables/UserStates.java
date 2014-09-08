@@ -11,7 +11,7 @@ package com.github.saem.appendage.jooq.generated.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class UserStates extends org.jooq.impl.TableImpl<com.github.saem.appendage.jooq.generated.tables.records.UserStatesRecord> {
 
-	private static final long serialVersionUID = 896700586;
+	private static final long serialVersionUID = -254417010;
 
 	/**
 	 * The singleton instance of <code>public.user_states</code>
@@ -27,9 +27,9 @@ public class UserStates extends org.jooq.impl.TableImpl<com.github.saem.appendag
 	}
 
 	/**
-	 * The column <code>public.user_states.user_state_id</code>.
+	 * The column <code>public.user_states.sequence</code>.
 	 */
-	public final org.jooq.TableField<com.github.saem.appendage.jooq.generated.tables.records.UserStatesRecord, java.lang.Long> USER_STATE_ID = createField("user_state_id", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
+	public final org.jooq.TableField<com.github.saem.appendage.jooq.generated.tables.records.UserStatesRecord, java.lang.Long> SEQUENCE = createField("sequence", org.jooq.impl.SQLDataType.BIGINT.nullable(false), this, "");
 
 	/**
 	 * The column <code>public.user_states.user_id</code>.
@@ -50,6 +50,11 @@ public class UserStates extends org.jooq.impl.TableImpl<com.github.saem.appendag
 	 * The column <code>public.user_states.password</code>.
 	 */
 	public final org.jooq.TableField<com.github.saem.appendage.jooq.generated.tables.records.UserStatesRecord, java.lang.String> PASSWORD = createField("password", org.jooq.impl.SQLDataType.VARCHAR.length(60).nullable(false), this, "");
+
+	/**
+	 * The column <code>public.user_states.is_disabled</code>.
+	 */
+	public final org.jooq.TableField<com.github.saem.appendage.jooq.generated.tables.records.UserStatesRecord, java.lang.Boolean> IS_DISABLED = createField("is_disabled", org.jooq.impl.SQLDataType.BOOLEAN.nullable(false).defaulted(true), this, "");
 
 	/**
 	 * Create a <code>public.user_states</code> table reference
@@ -78,7 +83,7 @@ public class UserStates extends org.jooq.impl.TableImpl<com.github.saem.appendag
 	 */
 	@Override
 	public org.jooq.UniqueKey<com.github.saem.appendage.jooq.generated.tables.records.UserStatesRecord> getPrimaryKey() {
-		return com.github.saem.appendage.jooq.generated.Keys.PK_USERS_USER_STATES_ID;
+		return com.github.saem.appendage.jooq.generated.Keys.PK_USER_STATES_SEQUENCE;
 	}
 
 	/**
@@ -86,7 +91,7 @@ public class UserStates extends org.jooq.impl.TableImpl<com.github.saem.appendag
 	 */
 	@Override
 	public java.util.List<org.jooq.UniqueKey<com.github.saem.appendage.jooq.generated.tables.records.UserStatesRecord>> getKeys() {
-		return java.util.Arrays.<org.jooq.UniqueKey<com.github.saem.appendage.jooq.generated.tables.records.UserStatesRecord>>asList(com.github.saem.appendage.jooq.generated.Keys.PK_USERS_USER_STATES_ID);
+		return java.util.Arrays.<org.jooq.UniqueKey<com.github.saem.appendage.jooq.generated.tables.records.UserStatesRecord>>asList(com.github.saem.appendage.jooq.generated.Keys.PK_USER_STATES_SEQUENCE);
 	}
 
 	/**
@@ -94,7 +99,7 @@ public class UserStates extends org.jooq.impl.TableImpl<com.github.saem.appendag
 	 */
 	@Override
 	public java.util.List<org.jooq.ForeignKey<com.github.saem.appendage.jooq.generated.tables.records.UserStatesRecord, ?>> getReferences() {
-		return java.util.Arrays.<org.jooq.ForeignKey<com.github.saem.appendage.jooq.generated.tables.records.UserStatesRecord, ?>>asList(com.github.saem.appendage.jooq.generated.Keys.USER_STATES__FK_USER_STATES_USERS);
+		return java.util.Arrays.<org.jooq.ForeignKey<com.github.saem.appendage.jooq.generated.tables.records.UserStatesRecord, ?>>asList(com.github.saem.appendage.jooq.generated.Keys.USER_STATES__FK_USER_STATES_EVENTS, com.github.saem.appendage.jooq.generated.Keys.USER_STATES__FK_USER_STATES_USERS);
 	}
 
 	/**

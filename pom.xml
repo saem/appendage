@@ -201,20 +201,19 @@
             </plugin>
             
             <plugin>
-
                 <!-- Specify the maven code generator plugin -->
                 <groupId>org.jooq</groupId>
                 <artifactId>jooq-codegen-maven</artifactId>
                 <version>${jooq.version}</version>
 
                 <!-- The plugin should hook into the generate goal -->
-                <executions>
+<!--                <executions>
                     <execution>
                         <goals>
                             <goal>generate</goal>
                         </goals>
                     </execution>
-                </executions>
+                </executions>-->
 
                 <!-- Manage the plugin's dependency. In this example, we'll use a PostgreSQL database -->
                 <dependencies>
@@ -245,6 +244,19 @@
                             <includes>.*</includes>
                             <excludes></excludes>
                             <inputSchema>public</inputSchema>
+                            
+                            <customTypes>
+                                <customType>
+                                    <name>java.time.LocalDateTime</name>
+                                    <converter>com.github.saem.appendage.jooq.LocalDateTimeConverter</converter>
+                                </customType>
+                            </customTypes>
+                            <forcedTypes>
+                                <forcedType>
+                                    <name>java.time.LocalDateTime</name>
+                                    <expression>.*\.when</expression>
+                                </forcedType>
+                            </forcedTypes>
                         </database>
                         <target>
                             <packageName>com.github.saem.appendage.jooq.generated</packageName>

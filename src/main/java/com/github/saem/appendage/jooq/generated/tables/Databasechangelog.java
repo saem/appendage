@@ -11,7 +11,7 @@ package com.github.saem.appendage.jooq.generated.tables;
 @java.lang.SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Databasechangelog extends org.jooq.impl.TableImpl<com.github.saem.appendage.jooq.generated.tables.records.DatabasechangelogRecord> {
 
-	private static final long serialVersionUID = -1616290368;
+	private static final long serialVersionUID = -1978076965;
 
 	/**
 	 * The singleton instance of <code>public.databasechangelog</code>
