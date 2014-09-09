@@ -31,7 +31,7 @@ final public class IdentityApplication extends Application<IdentityConfiguration
         
         final UserLookupService userLookupService = new UserLookupService(ds);
         
-        UserResource userResource = new UserResource(ds);
+        UserResource userResource = new UserResource(ds, userLookupService);
         
         env.jersey().register(userResource);
     }

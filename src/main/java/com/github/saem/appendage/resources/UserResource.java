@@ -4,6 +4,7 @@ import com.codahale.metrics.annotation.Metered;
 import com.codahale.metrics.annotation.Timed;
 import com.github.saem.appendage.jooq.generated.Tables;
 import com.github.saem.appendage.representations.UserWriteRepresentation;
+import com.github.saem.appendage.users.UserLookupService;
 import io.dropwizard.jersey.params.LongParam;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -12,8 +13,10 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import javax.sql.DataSource;
 import javax.validation.Valid;
+import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -33,14 +36,19 @@ final public class UserResource {
     public final long SYSTEM_USER_ID = 1L;
 
     public final DataSource dataSource;
+    private final UserLookupService userLookup;
 
-    public UserResource(DataSource ds) {
+    public UserResource(
+            DataSource ds,
+            UserLookupService userLookup
+    ) {
         dataSource = ds;
+        this.userLookup = userLookup;
     }
 
     @POST
-    @Metered
-    @Timed
+    @Metered(name = "com.github.saem.appendage.resources.UserResource.createUser")
+    @Timed(name = "com.github.saem.appendage.resources.UserResource.createUser.time")
     public final Response createUser(@Valid UserWriteRepresentation user) throws URISyntaxException {
         final int version = 1;
         
@@ -68,8 +76,15 @@ final public class UserResource {
                         .into(Long.class);
                 
                 using(config)
+                        .insertInto(Tables.USER_API_KEYS)
+                        .values(sequence, userId, 
+                                UUID.randomUUID().toString(),
+                                UUID.randomUUID().toString() + UUID.randomUUID().toString()) // my terrible way of creating a shared key
+                        .execute();
+                
+                using(config)
                         .insertInto(Tables.USER_STATES)
-                        .values(user.username, user.email, user.password, false)
+                        .values(user.username, user.email, user.password)
                         .execute();
                 
                 idState.put("userId", userId);
@@ -88,15 +103,12 @@ final public class UserResource {
                 .build();
     }
     
+    @GET
+    @Metered(name = "com.github.saem.appendage.resources.UserResource.getUser")
+    @Timed(name = "com.github.saem.appendage.resources.UserResource.getUser.time")
     public final Response getUser(@PathParam("userId") LongParam userIdParam) {
-        try (Connection conn = dataSource.getConnection()) {
-            //using(conn).select(cu)
-        } catch (SQLException ex) {
-            LOGGER.error("Failed to get user (userId: '" + userIdParam + "')", ex);
-            
-            return Response.serverError().build();
-        }
-        
-        return Response.serverError().build();
+        return userLookup.find(userIdParam.get())
+                .map(u -> Response.ok(u).build())
+                .orElse(Response.status(Response.Status.NOT_FOUND).build());
     }
 }

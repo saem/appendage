@@ -212,7 +212,7 @@
     </changeSet>
     
     <changeSet id="8" author="saem">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <viewExists viewName="current_api_keys" />
             </not>
@@ -239,7 +239,7 @@
     </changeSet>
     
     <changeSet id="9" author="saem">
-        <preConditions>
+        <preConditions onFail="MARK_RAN">
             <not>
                 <viewExists viewName="current_api_users" />
             </not>
@@ -250,7 +250,6 @@
               current_users.user_id,
               current_users.sequence,
               current_users.username,
-              current_users.password,
               current_users.email,
               current_api_keys.api_key,
               current_api_keys.secret
